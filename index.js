@@ -24,6 +24,10 @@ app.get('/', (req, res) => {
     const result = {name: 'marcelo', instagram: 'pmarcelojr'}
     return res.json(result)
 })
+app.get('/:id', (req, res) => {
+    const item = findItem(req.params.id)
+    return res.json(item)
+})
 // Metodo POST
 app.post('/', (req, res) => {
     const name = req.body.name
@@ -33,12 +37,10 @@ app.post('/', (req, res) => {
 // metodo PUT
 //http://localhost:3000/:id
 app.put('/:id', (req, res) => {
-    const item = findItem(req.params.id)
-    return res.json([item])
-})
-app.get('/:id', (req, res) => {
-    const item = findItem(req.params.id)
-    return res.json([item])
+    const name = req.body.name
+    let item = findItem(req.params.id)
+    item = { ...item, name: name }
+    return res.json(item)
 })
 
 app.listen(port, () => {
