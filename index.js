@@ -21,8 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 // Metodo GET
 app.get('/', (req, res) => {
-    const result = {name: 'marcelo', instagram: 'pmarcelojr'}
-    return res.json(result)
+    return res.json([data])
 })
 app.get('/:id', (req, res) => {
     const item = findItem(parseInt(req.params.id))
