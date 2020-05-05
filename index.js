@@ -13,7 +13,7 @@ const data = [
 ]
 
 const findItem = id => {
-    return data.find(item => item.id == id)
+    return data.find(item => item.id === id)
 }
 
 app.use(express.json())
@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
     return res.json(result)
 })
 app.get('/:id', (req, res) => {
-    const item = findItem(req.params.id)
+    const item = findItem(parseInt(req.params.id))
     return res.json(item)
 })
 // Metodo POST
@@ -38,13 +38,13 @@ app.post('/', (req, res) => {
 //http://localhost:3000/:id
 app.put('/:id', (req, res) => {
     const name = req.body.name
-    let item = findItem(req.params.id)
+    let item = findItem(parseInt(req.params.id))
     item = { ...item, name: name }
     return res.json(item)
 })
 // metodo delete
 app.delete('/:id', (req, res) => {
-    const item = findItem(req.params.id)
+    const item = findItem(parseInt(req.params.id))
     // deleta o item
     return res.json({})
 })
