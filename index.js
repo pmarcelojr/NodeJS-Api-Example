@@ -12,6 +12,10 @@ const data = [
     { id: 5, name: "Jason", age: 31, company: "Accumsan Interdum Associates"}
 ]
 
+const findItem = id => {
+    return data.find(item => item.id == id)
+}
+
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -29,8 +33,11 @@ app.post('/', (req, res) => {
 // metodo PUT
 //http://localhost:3000/:id
 app.put('/:id', (req, res) => {
-    const id = req.params.id
-    const item = data.find(item => item.id == id)
+    const item = findItem(req.params.id)
+    return res.json([item])
+})
+app.get('/:id', (req, res) => {
+    const item = findItem(req.params.id)
     return res.json([item])
 })
 
