@@ -42,7 +42,12 @@ app.put('/:id', (req, res) => {
     item = { ...item, name: name }
     return res.json(item)
 })
-
+// metodo delete
+app.delete('/:id', (req, res) => {
+    const item = findItem(req.params.id)
+    // deleta o item
+    return res.json({})
+})
 app.listen(port, () => {
     console.log(`Listening on port ${port}`)
 })
