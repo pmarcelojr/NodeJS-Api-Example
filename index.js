@@ -19,6 +19,7 @@ app.post('/', (req, res) => {
     return res.json([site, name])
 })
 // metodo PUT
+//http://localhost:3000/:identificador
 app.put('/:identificador', (req, res) => {
     const identificador = req.params.identificador
     console.log(identificador)
