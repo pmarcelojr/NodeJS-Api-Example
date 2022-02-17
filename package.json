@@ -19,6 +19,6 @@
   "homepage": "https://github.com/pmarcelojr/NodeJS-Api-Example#readme",
   "dependencies": {
     "body-parser": "^1.19.1",
-    "express": "^4.17.2"
+    "express": "^4.17.3"
   }
 }
